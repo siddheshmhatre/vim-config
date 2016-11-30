@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/Siddhesh'
+let g:netrw_dirhist_2='/Users/Siddhesh/Spring 2016/Introduction to Databases/HW2/hw2'
+let g:netrw_dirhist_3='/Users/Siddhesh/Repos/Machine-Learning-Algorithms'
+let g:netrw_dirhist_4='/Users/Siddhesh/AlgoPrep'
+let g:netrw_dirhist_5='/Users/Siddhesh/.vim'
