@@ -5,6 +5,8 @@ set encoding=utf-8
 set showcmd
 set nu
 set clipboard=unnamed
+set laststatus=2
+set backspace=indent,eol,start
 
 set visualbell
 set t_vb=
@@ -19,6 +21,12 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" For pydocstring
+set softtabstop=4
+
+"CtrlSF shortcut
+nmap <C-F>f <Plug>CtrlSFPrompt
+
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
@@ -28,6 +36,9 @@ nnoremap <space> za
 
 " View doctrings for folded code
 let g:SimpylFold_docstring_preview=1
+
+" Set md interp
+let vim_markdown_preview_github=1
 
 " Python indentation
 au BufNewFile,BufRead *.py
@@ -68,25 +79,30 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'heavenshell/vim-pydocstring'
+Plugin 'JamshedVesuna/vim-markdown-preview'
+"Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plugin 'junegunn/fzf.vim'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'tpope/vim-rhubarb'
 
 " YCM settings
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
+"py << EOF
+"import os
+"import sys
+"if 'VIRTUAL_ENV' in os.environ:
+"  project_base_dir = os.environ['VIRTUAL_ENV']
+"  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"  execfile(activate_this, dict(__file__=activate_this))
+"EOF
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-et NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 " select colorscheme based on mode
 if has('gui_running')
