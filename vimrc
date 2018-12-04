@@ -15,6 +15,9 @@ set t_vb=
 set splitbelow
 set splitright
 
+" breakpoints for python
+au FileType python nnoremap <C-B> oimport pdb; pdb.set_trace()<esc>
+
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
